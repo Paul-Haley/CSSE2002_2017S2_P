@@ -4,6 +4,7 @@ public class MyMath {//though
 
     public static void main(String[] args) { //main method
         System.out.println(MyMath.abs(-10));
+        //MyMath.abs(-10);
         
         System.out.println("factorials 5!");
         System.out.println(MyMath.factorial(5));
@@ -13,6 +14,7 @@ public class MyMath {//though
         System.out.println(MyMath.fibonacci(6));
         System.out.println(MyMath.fibonacciLoop(6));
         System.out.println("Golden ratio ~= " + MyMath.goldenRatioApprox(7));
+        System.out.println(fibonacciHacked(6));
     }
 
     /**
@@ -27,21 +29,38 @@ public class MyMath {//though
         return -a;
         //return Math.abs(a);
     }
-    
+ 
     private static int factorial(int n) {
-        if (n <= 0) {
+        if (n == 1) { //base case
             return 1;
         }
         return n * factorial(n-1);
     }
     
     private static int factorialLoop(int n) {
-        int total = n--;
-        for (; n > 0; --n) {
-            total *= n;
+        //int total = n--;
+        //for (; n > 0; --n) {
+        //    total *= n;
+        //}
+        int total = 1;
+        for (int i = 2; i <= n; i++) {
+            total *= i;
         }
+        
         return total;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * 
@@ -72,5 +91,11 @@ public class MyMath {//though
         float upper = fibonacci(n + 1);
         float lower = fibonacci(n);
         return upper/lower;
+    }
+    
+    private static int fibonacciHacked(int n) {
+        float goldenRatio = goldenRatioApprox(14); // good accuracy/time balance
+        return (int) Math.round((Math.pow(goldenRatio, n) - 
+                Math.pow(-goldenRatio, -n))/Math.sqrt(5));
     }
 }
