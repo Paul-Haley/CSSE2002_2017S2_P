@@ -50,18 +50,6 @@ public class MyMath {//though
         return total;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * 
      * @param n nth number
